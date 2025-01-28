@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resposive Website Landing Page - Width Background Video Slider | Travel</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+
+</head>
+<body>
+    <header>
+        <a href="#" class="brand">Travel</a>
+        <div class="menu-btn"></div>
+        <div class="navigation">
+            <div class="navigation-items"> 
+                <a href="index.html">Home</a>
+                <a href="#">About</a>
+                <a href="#">Explore</a>
+                <a href="#">Gallery</a>
+                <a href="#">Contact</a>
+            </div>
+        </div>
+    </header>
+    <section class="home">
+        <video class="video-slide active"  src="1.mp4" autoplay muted loop></video>
+        <video class="video-slide"  src="2.mp4" autoplay muted loop></video>
+        <video class="video-slide"  src="3.mp4" autoplay muted loop></video>
+        <video class="video-slide"  src="4.mp4" autoplay muted loop></video>
+        <video class="video-slide"  src="5.mp4" autoplay muted loop></video>
+        <div class="content active">
+            <h1>Wonderful.<br><span>Saranda</span></b></h1>
+            <p>Discover the beauty of Saranda, Albania, a charming coastal town nestled along the stunning Ionian Sea. Renowned for its crystal-clear waters, vibrant beaches, and breathtaking sunsets, Saranda is a haven for travelers seeking relaxation and adventure. Explore ancient ruins like the UNESCO World Heritage Site of Butrint, indulge in delicious Mediterranean cuisine, or take a boat trip to the magical Ksamil Islands. Whether you're soaking up the sun or diving into the rich history, Saranda promises an unforgettable experience.</p>
+            <a href="#">Read More</a>    
+        </div>
+
+        <div class="content">
+            <h1>Camping.<br><span>Enjoy</span></b></h1>
+            
+               <p>Camping in Saranda, Albania, offers a unique blend of nature and serenity by the Ionian Sea.Surrounded by lush landscapes and breathtaking beaches, campers can wake up to the soothing sound of waves and enjoy the stunning sunrise views.Popular spots like the Ksamil Islands and the ancient ruins of Butrint are within easy reach, making it an ideal destination for adventure seekers and history enthusiasts alike.</p> 
+            <a href="#">Read More</a>    
+        </div>
+
+        <div class="content">
+            <h1>Adventures.<br><span>Off Road</span></b></h1>
+            <p>Adventures in Saranda, Albania, promise an unforgettable mix of natural beauty and thrilling activities. Dive into the crystal-clear waters of the Ionian Sea for snorkeling or scuba diving to explore vibrant marine life. Take a boat trip to the stunning Ksamil Islands or venture to the Blue Eye Spring, a mesmerizing natural wonder. Hiking enthusiasts can explore the scenic trails around the ancient ruins of Butrint or the Lëkurësi Castle, offering panoramic views of the coast. Whether kayaking, paddleboarding, or discovering hidden beaches, Saranda is a haven for adventure seekers craving both excitement and breathtaking landscapes.
+            </p>
+            <a href="#">Read More</a>    
+        </div>
+
+        <div class="content">
+            <h1>Road Trip.<br><span>Together</span></b></h1>
+            <p>A road trip in Saranda, Albania, is an unforgettable journey through breathtaking coastal landscapes and charming villages. Begin your adventure by driving along the Riviera, where winding roads offer stunning views of the turquoise Ionian Sea. Stop at picturesque beaches like Mirror Beach or Gjipe Beach for a refreshing dip. Visit historical sites such as the ancient city of Butrint, a UNESCO World Heritage Site, and the enchanting Blue Eye Spring. As you travel, discover traditional Albanian hospitality in local villages, sample delicious cuisine, and soak in the serene beauty that makes Saranda a road trip paradise.</p>
+            <a href="#">Read More</a>    
+        </div>
+
+        <div class="content">
+            <h1>Feel Nature.<br><span>Relax</span></b></h1>
+            <p>In Saranda, Albania, you can immerse yourself in the untouched beauty of nature. Surrounded by the serene Ionian Sea and lush green hills, every corner offers a peaceful retreat. Explore the tranquil landscapes of Lëkurësi Castle, where sweeping views meet the gentle sea breeze. Visit the mesmerizing Blue Eye Spring, a natural wonder with crystal-clear waters and vibrant flora. Wander along unspoiled beaches or hike through nearby olive groves and forests. Whether it's the sound of waves, the rustle of leaves, or the warm glow of the sun, Saranda invites you to feel nature in its purest form.</p>
+            <a href="#">Read More</a>    
+        </div>
+        <div class="media-icons">
+            <a href="#"><i class="fab fa-facebook-f"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-youtube"></i></a>
+        </div>
+        <div class="slider-navigation">
+            <div class="nav-btn active"></div>
+            <div class="nav-btn" ></div>
+            <div class="nav-btn"></div>
+            <div class="nav-btn"></div>
+            <div class="nav-btn"></div>
+        </div>
+    </section>
+
+    <script type="text/javascript">
+        const menuBtn = document.querySelector(".menu-btn");
+        const navigation = document.querySelector(".navigation");
+        const contents = document.querySelectorAll(".content");
+    
+        // Check if elements exist before adding event listeners
+        if (menuBtn && navigation) {
+            menuBtn.addEventListener("click", () => {
+                // Toggle the "active" class on both elements
+                menuBtn.classList.toggle("active");
+                navigation.classList.toggle("active");
+            });
+        } else {
+            console.error("Menu button or navigation element not found!");
+        }
+
+        // JavaScript for the VIDEO slider navigation 
+
+        const btns = document.querySelectorAll(".nav-btn");
+const slides = document.querySelectorAll(".video-slide");
+
+const sliderNav = (manual) => {
+    // Hiq klasën "active" nga të gjitha butonat dhe videot
+    btns.forEach((btn) => btn.classList.remove("active"));
+    slides.forEach((slide) => slide.classList.remove("active"));
+    contents.forEach((content) => content.classList.remove("active"));
+
+
+    // Shto klasën "active" vetëm për elementin e përzgjedhur
+    btns[manual].classList.add("active");
+    slides[manual].classList.add("active");
+    contents[manual].classList.add("active");
+
+};
+
+// Shto event listener për butonat e navigimit
+btns.forEach((btn, i) => {
+    btn.addEventListener("click", () => {
+        sliderNav(i);
+    });
+});
+
+    </script>
+</body>
+</html>
